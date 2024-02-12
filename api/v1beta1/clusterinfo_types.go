@@ -23,12 +23,17 @@ import (
 
 // ClusterInfoSpec defines the desired state of ClusterInfo
 type ClusterInfoSpec struct {
+	Geolocation string     `json:"geolocation,omitempty"`
+	PowerIdle   string     `json:"poweridle,omitempty"`
+	PowerPeak   string     `json:"powerpeak,omitempty"`
+	Carbon      [24]string `json:"carbon,omitempty"`
 }
 
 // ClusterInfoStatus defines the observed state of ClusterInfo
 type ClusterInfoStatus struct {
 	// Capacity available on the cluster
 	Capacity v1.ResourceList `json:"capacity,omitempty"`
+	Usage    v1.ResourceList `json:"usage,omitempty"`
 
 	// When last updated
 	Time metav1.Time `json:"time,omitempty"`
